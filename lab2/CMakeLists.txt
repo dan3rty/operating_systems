@@ -1,0 +1,3 @@
+add_subdirectory(FlipCase)
+add_subdirectory(ListProcessesLinux)
+add_subdirectory(Zombie)
