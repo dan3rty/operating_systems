@@ -46,14 +46,11 @@ void listProcesses()
 	dirent* entry;
 	while ((entry = readdir(dir)) != nullptr)
 	{
-		if (entry->d_type == DT_DIR)
+		std::string pidStr(entry->d_name);
+		if (entry->d_type == DT_DIR && std::ranges::all_of(pidStr, ::isdigit))
 		{
-			std::string pidStr(entry->d_name);
-			if (std::ranges::all_of(pidStr, ::isdigit))
-			{
-				int pid = std::stoi(pidStr);
-				parseStatusFile(pid);
-			}
+			int pid = std::stoi(pidStr);
+			parseStatusFile(pid);
 		}
 	}
 
