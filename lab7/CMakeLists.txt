@@ -1,0 +1,3 @@
+add_subdirectory(FileTree)
+add_subdirectory(FSMonitor)
+add_subdirectory(Acrypt)

@@ -239,3 +239,4 @@ _Pvt_Extensions
 *.VC.db
 
 cmake-build-debug/*
+cmake-build-release/*

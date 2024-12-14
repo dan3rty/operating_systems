@@ -1,0 +1,3 @@
+add_subdirectory(KillChild)
+add_subdirectory(SignalHandler)
+add_subdirectory(Pipes)

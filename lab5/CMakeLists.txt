@@ -1,0 +1,4 @@
+add_subdirectory(ThreadsafeSet)
+add_subdirectory(BgThreadDispatcher)
+add_subdirectory(ThreadPool)
+add_subdirectory(SearchServer)

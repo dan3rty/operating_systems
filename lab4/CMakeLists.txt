@@ -1,0 +1,3 @@
+add_subdirectory(FlipCaseThreads)
+add_subdirectory(TicTac)
+add_subdirectory(Sorter)

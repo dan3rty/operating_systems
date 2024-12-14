@@ -6,38 +6,38 @@
 
 int main()
 {
-	pid_t pid = fork();
+	const pid_t pid = fork();
 
 	if (pid < 0)
 	{
-		throw std::runtime_error("fork failed");
+		std::cerr << "fork failed" << std::endl;
+		return EXIT_FAILURE;
 	}
 
 	if (pid == 0)
 	{
-		exit(0);
+		return EXIT_SUCCESS;
 	}
 
-	pid_t child_pid;
+	pid_t childPid;
 
 	std::cout << "Введите PID дочернего процесса: ";
-	std::cin >> child_pid;
+	std::cin >> childPid;
 
 	int status;
 	while (true)
 	{
-		if (waitpid(child_pid, &status, 0) == -1)
+		// выяснить, что будет если в waitpid прокинуть -1
+		if (waitpid(childPid, &status, 0) == -1)
 		{
-			std::cerr << "Не удалось дождаться процесса с PID " << child_pid << ". Попробуйте снова." << std::endl;
+			std::cerr << "Не удалось дождаться процесса с PID " << childPid << ". Попробуйте снова." << std::endl;
 			std::cout << "Введите PID дочернего процесса: ";
-			std::cin >> child_pid;
+			std::cin >> childPid;
 		}
 		else
 		{
-			std::cout << "Дочерний процесс с PID " << child_pid << " завершился." << std::endl;
-				break;
+			std::cout << "Дочерний процесс с PID " << childPid << " завершился." << std::endl;
+			return EXIT_SUCCESS;
 		}
 	}
-
-	return 0;
 }
