@@ -1,3 +1,4 @@
 add_subdirectory(FileTree)
-add_subdirectory(FSMonitor)
+add_subdirectory(FSMonitorLinux)
+add_subdirectory(FSMonitorWindows)
 add_subdirectory(Acrypt)
